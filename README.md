@@ -13,8 +13,7 @@ Nome: Rafaela Cristina Rojas Lemos
 
 ---
 
-## Venv
-
+## Ambiente virtual
 O recomendado é a utilização de um ambiente virtual `venv` para este projeto, siga os seguintes passos:
 
 - Clone o repositório com ``git clone <link>`
