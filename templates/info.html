@@ -1,0 +1,12 @@
+{% for dado in banco %}
+    <li>
+        IP: {{ dado['ip'] }}
+        Método: {{ dado['metodo'] }}
+        Horário: {{ dado['timestamp'] }}
+        Rota: {{ dado['rota'] }}
+            {% if dado.get('resposta') %}
+                Resposta: {{ dado['resposta'] }}
+            {% endif %}
+    </li>
+    <br>
+{% endfor %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash - Logs</title>
+    <script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Logs</h1>
+            <table class="logs" hx-get="/info" hx-trigger="every 1s">
+                <thead>
+                    <tr>
+                        <th>IP</th>
+                        <th>Metodo</th>
+                        <th>Timestamp</th>
+                        <th>Rota</th>
+                        <th>Resposta</th>
+                    </tr>
+                </thead>
+                <tbody hx-get="/info" hx-trigger="load" hx-swap="innerHTML">
+                    {% for entry in banco %}
+                    <tr>
+                        <td>{{ entry['ip'] }}</td>
+                        <td>{{ entry['metodo'] }}</td>
+                        <td>{{ entry['timestamp'] }}</td>
+                        <td>{{ entry['rota'] }}</td>
+                        <td>{{ entry['resposta'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>
